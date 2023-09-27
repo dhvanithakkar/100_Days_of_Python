@@ -1,0 +1,122 @@
+print(''' 
+ _                                             
+| |                                            
+| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  
+| '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_ \ 
+| | | | (_| | | | | (_| | | | | | | (_| | | | |
+|_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
+                    __/ |                      
+                   |___/    
+''')
+
+def list_to_string(li: list)-> str:
+    s = ""
+    for elem in li:
+        s = s + str(elem)
+    return s
+
+hangman_graphics = [
+    '''
+      _______
+     |/      |
+     |    
+     |       
+     |       
+     |     
+     |
+    _|___
+    ''','''
+      _______
+     |/      |
+     |      (_)
+     |      
+     |     
+     |
+     |
+    _|___
+    ''','''
+      _______
+     |/      |
+     |      (_)
+     |       |
+     |       |
+     |     
+     |
+    _|___
+    ''','''
+      _______
+     |/      |
+     |      (_)
+     |      \|
+     |       |
+     |      
+     |
+    _|___
+    ''', '''
+      _______
+     |/      |
+     |      (_)
+     |      \|/
+     |       |
+     |     
+     |
+    _|___
+    ''', '''
+      _______
+     |/      |
+     |      (_)
+     |      \|/
+     |       |
+     |      / 
+     |
+    _|___
+    ''', '''
+      _______
+     |/      |
+     |      (_)
+     |      \|/
+     |       |
+     |      / \\
+     |
+    _|___
+    '''
+    
+]
+
+
+word_list = ["beekeeper"]
+
+import random
+chosen_word = random.choice(word_list)
+
+word_guessed = ["_"] * len(chosen_word)
+wrong_guesses = 0
+
+print(hangman_graphics[wrong_guesses])
+
+while wrong_guesses < len(hangman_graphics) - 1 and list_to_string(word_guessed) != chosen_word:
+    guess = input("Guess a Letter: ")[0].lower()
+    match_with_chosen_word = []
+    for letter in chosen_word:
+        match_with_chosen_word.append(guess == letter)
+
+    if not any(match_with_chosen_word):
+        wrong_guesses += 1
+        print("Guessed letter is not in the word.\n")
+    
+    for (index, match) in enumerate(match_with_chosen_word):
+        if match:
+            word_guessed[index] = guess
+    print("Word guessed is:", end = " ")
+    for l in word_guessed:
+        print(l, end =" ")
+    
+    
+
+    print(hangman_graphics[wrong_guesses])
+
+if wrong_guesses == len(hangman_graphics) - 1:
+    print("You Lose.")
+    print("The correct word was", chosen_word)
+else:
+        print("You Win!")
