@@ -88,13 +88,13 @@ def coffee_machine():
         print("Thank you!")
         return
     
-    if choice == 'report':
+    elif choice == 'report':
         print(f"Water: {resources['water']}ml")
         print(f"Milk: {resources['milk']}ml")
         print(f"Coffee: {resources['coffee']}g")
         print(f"Money: ${money_in_machine}")
     
-    if choice == 'replenish':
+    elif choice == 'replenish':
         resources['water'] += int(input("Water Added in ml: "))
         resources['milk'] += int(input("Milk Added in ml: "))
         resources['coffee'] += int(input("Coffee Added in g: "))
