@@ -148,7 +148,7 @@ from replit import clear
 from art import logo
 
 def deal_card():
-  """Returns a random card from the deck."""
+  ""Returns a random card from the deck.""
   cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
   card = random.choice(cards)
   return card
@@ -157,7 +157,7 @@ def deal_card():
 #and returns the score. 
 #Look up the sum() function to help you do this.
 def calculate_score(cards):
-  """Take a list of cards and return the score calculated from the cards"""
+  ""Take a list of cards and return the score calculated from the cards""
 
   #Hint 7: Inside calculate_score() check for a blackjack (a hand with only 2 cards: ace + 10) and return 0 instead of the actual score. 0 will represent a blackjack in our game.
   if sum(cards) == 21 and len(cards) == 2:
