@@ -303,7 +303,7 @@ word_list = [
 import random
 chosen_word = random.choice(word_list)
 
-print("Solution is: {chosen_word}")
+print(f"Solution is: {chosen_word}")
 
 word_guessed = ["_"] * len(chosen_word)
 wrong_guesses = 0
